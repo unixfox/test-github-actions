@@ -15,19 +15,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: AbsaOSS/k3d-action@v2
-        name: "Create Single Cluster"
-        with:
-          cluster-name: "test-cluster-1"
-          args: >-
-            --agents 0
-            --no-lb
+      - name: k3s install
+        run: |
+          curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -
 
       - name: run commands
         run: |
           free -h
           kubectl get nodes
           kubectl describe node k3d-test-cluster-1-server-0
+          sleep 10s
           kubectl run nginx --image=nginx
           sleep 20s
           kubectl get pods -A -o wide
