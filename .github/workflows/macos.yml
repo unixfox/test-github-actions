@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  lint-test:
+  macos:
     runs-on: macos-latest
     steps:
       - name: Checkout
