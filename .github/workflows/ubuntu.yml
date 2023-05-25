@@ -21,7 +21,7 @@ jobs:
 
       - name: run commands
         run: |
-          until kubectl get --raw='/readyz?verbose'; do echo "wait for k3s to finish"; done
+          until KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl get --raw='/readyz?verbose'; do echo "wait for k3s to finish"; done
           free -h
           kubectl get nodes
           kubectl describe node k3d-test-cluster-1-server-0
