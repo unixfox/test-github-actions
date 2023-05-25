@@ -15,11 +15,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v1
-
-      - uses: AbsaOSS/k3d-action@v2
-        name: "Create Single Cluster"
-        with:
-          cluster-name: "test-cluster-1"
-          args: --agents 1
+      - name: Install k3s
+        run: |
+          curl -sfL https://get.k3s.io | sh -
