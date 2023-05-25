@@ -15,6 +15,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Docker
+        uses: crazy-max/ghaction-setup-docker@v1
+
       - uses: AbsaOSS/k3d-action@v2
         name: "Create Single Cluster"
         with:
