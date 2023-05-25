@@ -30,4 +30,4 @@ jobs:
           kubectl describe node k3d-test-cluster-1-server-0
           kubectl run nginx --image=nginx
           sleep 20s
-          kubectl get pods -A
+          kubectl get pods -A -o wide
