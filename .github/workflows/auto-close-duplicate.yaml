@@ -5,6 +5,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - uses: iv-org/potential-duplicates@v1
         with:
